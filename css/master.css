@@ -1,0 +1,65 @@
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{}
+
+html{
+    font-family: monospace;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.container{
+    max-width: 992px;
+    margin: auto;
+}
+
+.digits{
+    text-align: center;
+}
+
+.digits ul{
+    list-style: none;
+
+}
+
+.digits ul li.digits-item{
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 2rem;
+    width: 80px;
+    margin: 20px;
+}
+
+.digits-item.wrong{
+    color: red;
+}
+
+.digits-item.right{
+    color: green;
+}
+
+#digits-list{
+    transition: all .2s ease;
+}
+
+#digits-list.hidden{
+    opacity: 0;
+}
+
+.msgbox{
+    text-align: center;
+    font-size: 1.5rem;
+}

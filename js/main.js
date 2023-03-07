@@ -1,6 +1,14 @@
 const domNumbersWrapper = document.getElementById('digits-list');
+const domBtnPlay = document.getElementById('btnPlay');
 const domMsg = document.getElementById('msg');
-start();
+const domCounter = document.getElementById('counter');
+
+domBtnPlay.addEventListener('click', function(){
+    domNumbersWrapper.innerHTML = "";
+    domMsg.innerHTML = "";
+    start();
+    domBtnPlay.disabled = true;
+});
 
 function start(){
 
@@ -17,9 +25,26 @@ function start(){
     }
 
     // Timer
+
+    let timer = 29;
+    const counterFunc = setInterval(function(){
+
+        domCounter.classList.add('animate');
+
+        if(timer == 0){
+            domCounter.classList.remove('animate');
+            domCounter.innerHTML = "";
+            clearInterval(counterFunc);
+        }else{
+            domCounter.innerText = timer;
+            timer--;
+        }
+
+    }, 1000);
+
     setTimeout(function(){
         domNumbersWrapper.classList.add('hidden');
-    }, 5000);
+    }, 30000);
 
     setTimeout(function(){
         let counter = 0;
@@ -38,8 +63,9 @@ function start(){
         }
 
         domMsg.innerText = `Hai indovinato ${counter} numeri!`;
+        domBtnPlay.disabled = false;
 
-    },5500);
+    },30500);
 
 }
 
